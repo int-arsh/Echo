@@ -25,7 +25,7 @@ const AddPost = () => {
                 />
             </div>
             {/*Post options */}
-            <div className="flex items-center gap-4 mt-4 text-gray-400">
+            <div className="flex items-center gap-4 mt-4 text-gray-400 flex-wrap">
                 <div className="flex items-center gap-2 cursor-pointer">
                     <Image
                         src="/addimage.png"
@@ -38,13 +38,23 @@ const AddPost = () => {
                 </div>
                 <div className="flex items-center gap-2 cursor-pointer">
                     <Image
-                        src="/addvideo.png"
+                        src="/addVideo.png"
                         alt=""
                         width={20}
                         height={20}
                         className="w-5 h-5 cursor-pointer"
                     />
-                    Photo
+                    Video
+                </div>
+                <div className="flex items-center gap-2 cursor-pointer">
+                    <Image
+                        src="/poll.png"
+                        alt=""
+                        width={20}
+                        height={20}
+                        className="w-5 h-5 cursor-pointer"
+                    />
+                    Poll
                 </div>
                 <div className="flex items-center gap-2 cursor-pointer">
                     <Image
@@ -54,17 +64,7 @@ const AddPost = () => {
                         height={20}
                         className="w-5 h-5 cursor-pointer"
                     />
-                    Photo
-                </div>
-                <div className="flex items-center gap-2 cursor-pointer">
-                    <Image
-                        src="/apoll.png"
-                        alt=""
-                        width={20}
-                        height={20}
-                        className="w-5 h-5 cursor-pointer"
-                    />
-                    Photo
+                    Event
                 </div>
             </div>
         </div>
