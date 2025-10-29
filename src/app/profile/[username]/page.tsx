@@ -1,11 +1,28 @@
 import LeftMenu from "@/components/leftMenu/LeftMenu";
 import Feed from "@/components/feed/Feed";
 import RightMenu from "@/components/rightMenu/RightMenu";
-import UserInfoCard from "@/components/UserInfoCard";
 import Image from "next/image";
+import prisma from "@/lib/client";
+import { notFound } from "next/navigation";
 
 
-export default function ProfilePage() {
+export default async function ProfilePage({params}: {params: {username: string}}) {
+	const {username} = await params;
+	const user = await prisma.user.findFirst({
+		where: {
+			username: username,
+		},
+		include: {
+			_count: {
+				select: {
+					followers: true,
+					followings: true,
+					posts: true,
+				},
+			},
+		},
+	});
+	if (!user) return notFound();
 	return (
 		<div className="flex gap-6 pt-6">
 			<div className="hidden xl:block w-[20%]">
